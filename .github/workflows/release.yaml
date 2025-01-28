@@ -55,8 +55,8 @@ jobs:
           - name: Linux mips
             target: mips-unknown-linux-musl
 
-          - name: Linux mips64
-            target: mips64-unknown-linux-muslabi64
+          #- name: Linux mips64
+          #  target: mips64-unknown-linux-muslabi64
 
           # Mac OS
           - name: MacOS x86_64
