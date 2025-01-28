@@ -70,6 +70,10 @@ rcgen = { version = "0.13.2", default-features = false, features = ["aws_lc_rs"]
 tokio-rustls = { version = "0.26.1", default-features = false, features = ["logging", "tls12", "ring"] }
 rcgen = { version = "0.13.2", default-features = false, features = ["ring"] }
 
+[target.'cfg(all(any(target_os = "linux"), any(target_arch = "mips", target_arch = "mips64")))'.dependencies]
+tokio-rustls = { version = "0.26.1", features = [] }
+rcgen = { version = "0.13.2", default-features = false, features = ["aws_lc_rs"] }
+
 [dev-dependencies]
 testcontainers = "0.23.1"
 test-case = "3.3.1"
