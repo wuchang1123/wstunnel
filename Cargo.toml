@@ -66,13 +66,13 @@ tokio-fd = "0.3.0"
 tokio-rustls = { version = "0.26.1", features = [] }
 rcgen = { version = "0.13.2", default-features = false, features = ["aws_lc_rs"] }
 
-[target.'cfg(not(all(any(target_os = "linux", target_os = "macos"), any(target_arch = "x86_64", target_arch = "aarch64"))))'.dependencies]
-tokio-rustls = { version = "0.26.1", default-features = false, features = ["logging", "tls12", "ring"] }
-rcgen = { version = "0.13.2", default-features = false, features = ["ring"] }
-
 [target.'cfg(all(any(target_os = "linux"), any(target_arch = "mips", target_arch = "mips64")))'.dependencies]
 tokio-rustls = { version = "0.26.1", features = [] }
 rcgen = { version = "0.13.2", default-features = false, features = ["aws_lc_rs"] }
+
+[target.'cfg(not(all(any(target_os = "linux", target_os = "macos"), any(target_arch = "mips", target_arch = "mips64", target_arch = "x86_64", target_arch = "aarch64"))))'.dependencies]
+tokio-rustls = { version = "0.26.1", default-features = false, features = ["logging", "tls12", "ring"] }
+rcgen = { version = "0.13.2", default-features = false, features = ["ring"] }
 
 [dev-dependencies]
 testcontainers = "0.23.1"
