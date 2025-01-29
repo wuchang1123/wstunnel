@@ -122,6 +122,10 @@ jobs:
       - name: Checkout Git repo
         uses: actions/checkout@v3
 
+      - name: Install package for Android/OpenWRT
+        if: ${{ contains(matrix.platform.target, 'android') || contains(matrix.platform.target, 'mips') }}
+        run: cargo install cross --git https://github.com/cross-rs/cross
+
       # Linux & Windows
       - name: Install rust toolchain for Linux
         uses: actions-rs/toolchain@v1
@@ -132,10 +136,6 @@ jobs:
           override: true
           target: ${{ matrix.platform.target }}
           components: rustfmt, clippy
-
-      - name: Install package for Android/OpenWRT
-        if: ${{ contains(matrix.platform.target, 'android') || contains(matrix.platform.target, 'mips') }}
-        run: cargo install cross --git https://github.com/cross-rs/cross
 
       - name: Show command used for Cargo
         run: |
