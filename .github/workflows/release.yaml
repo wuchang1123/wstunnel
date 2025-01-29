@@ -52,13 +52,20 @@ jobs:
             target: armv7-linux-androideabi
             build-args: "--release"
 
-          - name: Linux mips
+          #- name: Linux mips
           #  target: mips-unknown-linux-musl
-            target: mips-unknown-linux-gnu
-            build-args: "--release"
+          #  build-args: "--release"
 
-          - name: Linux mips64
+          #- name: Linux mips64
           #  target: mips64-unknown-linux-muslabi64
+          #  build-args: "--release"
+
+          #- name: OpenWRT mips
+          #  target: mips-unknown-linux-musl
+          #  target: mips-unknown-linux-gnu
+          #  build-args: "--release"
+
+          - name: OpenWRT mips64
             target: mips64-openwrt-linux-musl
             build-args: "--release"
 
