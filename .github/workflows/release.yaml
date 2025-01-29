@@ -133,8 +133,8 @@ jobs:
           target: ${{ matrix.platform.target }}
           components: rustfmt, clippy
 
-      - name: Install package for Android
-        if: contains(matrix.platform.target, 'android')
+      - name: Install package for Android/OpenWRT
+        if: ${{ contains(matrix.platform.target, 'android') || contains(matrix.platform.target, 'mips') }}
         run: cargo install cross --git https://github.com/cross-rs/cross
 
       - name: Show command used for Cargo
