@@ -53,11 +53,14 @@ jobs:
             build-args: "--release"
 
           - name: Linux mips
-            target: mips-unknown-linux-musl
+          #  target: mips-unknown-linux-musl
+            target: mips-unknown-linux-gnu
             build-args: "--release"
 
-          #- name: Linux mips64
+          - name: Linux mips64
           #  target: mips64-unknown-linux-muslabi64
+            target: mips64-openwrt-linux-musl
+            build-args: "--release"
 
           # Mac OS
           - name: MacOS x86_64
